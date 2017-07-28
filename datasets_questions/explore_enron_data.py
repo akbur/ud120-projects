@@ -16,8 +16,9 @@
 """
 
 import pickle
-
-enron_data = pickle.load(open("/Users/krisburke/Learn/Udacity/ud120-projects/final_project/final_project_dataset.pkl", "r"))
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+enron_data = pickle.load(open(os.path.join(dir_path, "../final_project/final_project_dataset.pkl"), "r"))
 
 total_num_people = len(enron_data)
 print "Number of people in dataset", total_num_people
@@ -32,7 +33,7 @@ print "Number of persons of interest in dataset", len(poi)
 
 # Count total POI names
 count = 0
-file = open("/Users/krisburke/Learn/Udacity/ud120-projects/final_project/poi_names.txt", "r")
+file = open(os.path.join(dir_path, "../final_project/poi_names.txt"), "r")
 for line in file:
   if line.startswith("(y)") or line.startswith("(n)"):
     count += 1

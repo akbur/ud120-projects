@@ -7,10 +7,11 @@
     Sara has label 0
     Chris has label 1
 """
-
+import os
 import sys
 from time import time
-sys.path.append("/Users/krisburke/Learn/Udacity/ud120-projects/tools")
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(dir_path, "../tools"))
 from email_preprocess import preprocess
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier

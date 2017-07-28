@@ -3,14 +3,17 @@
 import pickle
 import cPickle
 import numpy
+import os
 
 from sklearn import cross_validation
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+words_file_path = os.path.join(dir_path, "../tools/word_data.pkl")
+authors_file_path = os.path.join(dir_path, "../tools/email_authors.pkl")
 
-
-def preprocess(words_file = "/Users/krisburke/Learn/Udacity/ud120-projects/tools/word_data.pkl", authors_file="/Users/krisburke/Learn/Udacity/ud120-projects/tools/email_authors.pkl"):
+def preprocess(words_file = words_file_path, authors_file=authors_file_path):
     """
         this function takes a pre-made list of email texts (by default word_data.pkl)
         and the corresponding authors (by default email_authors.pkl) and performs

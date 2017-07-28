@@ -15,9 +15,11 @@
 
 import sys
 import pickle
-sys.path.append("/Users/krisburke/Learn/Udacity/ud120-projects/tools/")
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(dir_path, "../tools"))
 from feature_format import featureFormat, targetFeatureSplit
-dictionary = pickle.load( open("/Users/krisburke/Learn/Udacity/ud120-projects/final_project/final_project_dataset_modified.pkl", "r") )
+dictionary = pickle.load( open( os.path.join(dir_path, "../final_project/final_project_dataset_modified.pkl"), "r"))
 
 from sklearn.linear_model import LinearRegression
 
